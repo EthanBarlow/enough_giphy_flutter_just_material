@@ -172,6 +172,7 @@ class _GiphySheetState extends State<GiphySheet> {
     _loaderFuture = widget.client.request(_currentRequest);
     _inputDecoration = widget.searchInputDecoration ??
         InputDecoration(
+          labelStyle: TextStyle(color: Colors.black),
           prefixIcon: defaultTargetPlatform == TargetPlatform.windows
               ? null
               : const Icon(Icons.search),
