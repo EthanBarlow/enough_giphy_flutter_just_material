@@ -1,6 +1,4 @@
-import 'package:enough_giphy_flutter/enough_giphy_flutter.dart';
-import 'package:enough_platform_widgets/enough_platform_widgets.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:enough_giphy_flutter_just_material/enough_giphy_flutter_just_material.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,15 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PlatformApp(
-      title: 'enough_giphy_flutter',
-      material: (context, target) => MaterialAppData(
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          brightness: Brightness.light,
-        ),
-      ),
-      home: const MyHomePage(title: 'enough_giphy_flutter Demo'),
+    return const MaterialApp(
+      title: 'enough_giphy_flutter_just_material',
+      home: MyHomePage(title: 'enough_giphy_flutter_just_material Demo'),
     );
   }
 }
@@ -58,33 +50,16 @@ class _MyHomePageState extends State<MyHomePage> {
               controller: _scrollController,
             ),
     );
-    return PlatformScaffold(
-      appBar: PlatformAppBar(
+    return Scaffold(
+      appBar: AppBar(
         title: Text(widget.title),
       ),
-      material: (context, platform) => MaterialScaffoldData(
-        body: content,
-        floatingActionButton: FloatingActionButton(
-          onPressed: _selectGif,
-          tooltip: 'Select Gif',
-          child: const Icon(Icons.gif),
-        ),
+      body: content,
+      floatingActionButton: FloatingActionButton(
+        onPressed: _selectGif,
+        tooltip: 'Select Gif',
+        child: const Icon(Icons.gif),
       ),
-      cupertino: (context, platform) => CupertinoPageScaffoldData(
-          body: Stack(
-        children: [
-          content,
-          SafeArea(
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: CupertinoButton.filled(
-                onPressed: _selectGif,
-                child: const Icon(Icons.gif),
-              ),
-            ),
-          ),
-        ],
-      )),
     );
   }
 
@@ -92,11 +67,11 @@ class _MyHomePageState extends State<MyHomePage> {
   void _selectGif() async {
     const giphyApiKey = 'giphy-api-key';
     if (giphyApiKey == 'giphy-api-key') {
-      showPlatformDialog(
+      showDialog(
         context: context,
-        builder: (context) => PlatformAlertDialog(
-          title: const Text('Check your GIPHY API Key'),
-          content: const Text('You need to register an API key first.'),
+        builder: (context) => const AlertDialog(
+          title: Text('Check your GIPHY API Key'),
+          content: Text('You need to register an API key first.'),
         ),
       );
       return;

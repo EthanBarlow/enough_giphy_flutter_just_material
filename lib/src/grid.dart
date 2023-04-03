@@ -1,10 +1,8 @@
 import 'dart:math';
 
 import 'package:enough_giphy/enough_giphy.dart';
-import 'package:enough_platform_widgets/enough_platform_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 
 import 'image_view.dart';
 
@@ -94,7 +92,7 @@ class GiphyGrid extends StatelessWidget {
                     );
                   }
                 }
-                return Center(child: PlatformCircularProgressIndicator());
+                return Center(child: CircularProgressIndicator());
               },
             );
           },

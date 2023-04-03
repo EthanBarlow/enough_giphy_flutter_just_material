@@ -1,9 +1,7 @@
-import 'package:enough_platform_widgets/enough_platform_widgets.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../enough_giphy_flutter.dart';
+import '../enough_giphy_flutter_just_material.dart';
 import 'grid.dart';
 
 /// What predefined grid should be used
@@ -179,15 +177,15 @@ class _GiphySheetState extends State<GiphySheet> {
               : const Icon(Icons.search),
           labelText: widget.searchLabelText ?? 'GIPHY search',
           hintText: widget.searchHintText ?? 'Your search',
-          suffix: PlatformIconButton(
-            icon: Icon(CommonPlatformIcons.clear),
+          suffix: IconButton(
+            icon: Icon(Icons.clear),
             onPressed: () {
               _searchController.text = '';
               _reload(_currentRequest.copyWithoutSearchQuery());
             },
           ),
           suffixIcon: defaultTargetPlatform == TargetPlatform.windows
-              ? PlatformIconButton(
+              ? IconButton(
                   icon: const Icon(Icons.search),
                   onPressed: () => _onSearchSubmitted(_searchController.text),
                 )
@@ -207,7 +205,7 @@ class _GiphySheetState extends State<GiphySheet> {
             constraints: BoxConstraints.loose(maxAttributionSize),
             child: Image.asset(
               'assets/attribution.gif',
-              package: 'enough_giphy_flutter',
+              package: 'enough_giphy_flutter_just_material',
               height: 40.0,
               fit: BoxFit.contain,
             ),
@@ -321,7 +319,7 @@ class _GiphySheetState extends State<GiphySheet> {
             }
             return SliverToBoxAdapter(
               child: Center(
-                child: PlatformCircularProgressIndicator(),
+                child: CircularProgressIndicator(),
               ),
             );
           },
@@ -346,16 +344,7 @@ class _GiphySheetState extends State<GiphySheet> {
   }
 
   Widget _buildSearchField(BuildContext context) {
-    if (PlatformInfo.isCupertino) {
-      return CupertinoSearchFlowTextField(
-        enabled: _currentRequest.type != GiphyType.emoji,
-        controller: _searchController,
-        cancelText: widget.searchCancelText ?? 'Cancel',
-        onSubmitted: _onSearchSubmitted,
-        title: _inputDecoration.labelText,
-      );
-    }
-    return DecoratedPlatformTextField(
+    return TextField(
       enabled: _currentRequest.type != GiphyType.emoji,
       decoration: _inputDecoration,
       controller: _searchController,
@@ -384,7 +373,7 @@ class _GiphySheetState extends State<GiphySheet> {
   Widget _buildTypeSwitcher(BuildContext context) => Center(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: PlatformToggleButtons(
+          child: ToggleButtons(
             children: GiphyType.values
                 .map((type) => Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -425,8 +414,8 @@ class _GiphySheetState extends State<GiphySheet> {
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
                     color: Theme.of(context).canvasColor.withAlpha(128),
-                    child: PlatformTextButton(
-                      child: PlatformText('@${gif.username}'),
+                    child: TextButton(
+                      child: Text('@${gif.username}'),
                       onPressed: () {
                         Navigator.of(context).pop(false);
                         final query = '@${gif.username}';
@@ -447,25 +436,6 @@ class _GiphySheetState extends State<GiphySheet> {
               ],
             ),
           );
-    if (PlatformInfo.isCupertino) {
-      return showCupertinoDialog<bool>(
-        context: context,
-        builder: (context) => CupertinoAlertDialog(
-          title: titleWidget,
-          content: content,
-          actions: [
-            CupertinoButton(
-              onPressed: () => Navigator.of(context).pop(false),
-              child: const Icon(CupertinoIcons.clear_circled),
-            ),
-            CupertinoButton(
-              onPressed: () => Navigator.of(context).pop(true),
-              child: const Icon(CupertinoIcons.check_mark_circled),
-            ),
-          ],
-        ),
-      );
-    }
     final onSurfaceColor = Theme.of(context).colorScheme.onSurface;
     return showDialog<bool>(
       context: context,

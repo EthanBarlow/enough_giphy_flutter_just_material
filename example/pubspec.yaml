@@ -28,7 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  enough_giphy_flutter:
+  enough_giphy_flutter_just_material:
     path: ../
   enough_platform_widgets: ^0.7.1
   flutter:

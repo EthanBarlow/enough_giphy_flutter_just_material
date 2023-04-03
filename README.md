@@ -3,15 +3,15 @@
 Add a powerful and customizable [GIPHY](https://developers.giphy.com/) picker into your Flutter app.
 
 ## Benefits
-Using `enough_giphy_flutter` has the following benefits:
+Using `enough_giphy_flutter_just_material` has the following benefits:
 * The mandatory GIPHY attribution is not an afterthought - use it "as is" to get your app approved or customize the attribution according to your needs.
-* Platform-specific UI: use cupertino look and feel on iOS and MacOS, material on Android and other platforms.
+* Material UI: Material is used on all platforms.
 * Easily localize all texts.
 * Customize the look and feel according to your preferences and style.
-* Uses as few dependencies as possible.
+* Not dependent on flutter_platform_widgets or enough_platform_widgets.
 
-[<img src="https://github.com/Enough-Software/enough_giphy_flutter/raw/main/screenshots/enough_giphy_flutter-android.gif" width="370"/>](https://github.com/Enough-Software/enough_giphy_flutter/raw/main/screenshots/enough_giphy_flutter-android.gif)
-[<img src="https://github.com/Enough-Software/enough_giphy_flutter/raw/main/screenshots/enough_giphy_flutter-ios.gif" width="320"/>](https://github.com/Enough-Software/enough_giphy_flutter/raw/main/screenshots/enough_giphy_flutter-ios.gif)
+<!-- [<img src="https://github.com/Enough-Software/enough_giphy_flutter/raw/main/screenshots/enough_giphy_flutter-android.gif" width="370"/>](https://github.com/Enough-Software/enough_giphy_flutter/raw/main/screenshots/enough_giphy_flutter-android.gif)
+[<img src="https://github.com/Enough-Software/enough_giphy_flutter/raw/main/screenshots/enough_giphy_flutter-ios.gif" width="320"/>](https://github.com/Enough-Software/enough_giphy_flutter/raw/main/screenshots/enough_giphy_flutter-ios.gif) -->
 
 
 ## Installation
@@ -19,9 +19,9 @@ Add this dependency your pubspec.yaml file:
 
 ```
 dependencies:
-  enough_giphy_flutter: ^0.2.1
+  enough_giphy_flutter_just_material: ^0.1.0
 ```
-The latest version or `enough_giphy_flutter` is [![enough_giphy_flutter version](https://img.shields.io/pub/v/enough_giphy_flutter.svg)](https://pub.dartlang.org/packages/enough_giphy_flutter).
+The latest version or `enough_giphy_flutter_just_material` is [![enough_giphy_flutter_just_material version](https://img.shields.io/pub/v/enough_giphy_flutter_just_material.svg)](https://pub.dartlang.org/packages/enough_giphy_flutter).
 
 
 
@@ -29,7 +29,7 @@ The latest version or `enough_giphy_flutter` is [![enough_giphy_flutter version]
 Check out the full API documentation at https://pub.dev/documentation/enough_giphy_flutter/latest/
 
 ## Usage
-Use `enough_giphy_flutter` to select a GIF, sticker or emoji from [GIPHY](https://developers.giphy.com/). 
+Use `enough_giphy_flutter_just_material` to select a GIF, sticker or emoji from [GIPHY](https://developers.giphy.com/). 
 
 ### Requirements
 * Sign up for the mandatory API key for each supported platform at developers.giphy.com, compare https://developers.giphy.com/docs/api#quick-start-guide for details. Select `API` and not `SDK` when generating the API key.

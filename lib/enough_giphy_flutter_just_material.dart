@@ -1,8 +1,6 @@
-library enough_giphy_flutter;
+library enough_giphy_flutter_just_material;
 
 import 'package:enough_giphy/enough_giphy.dart';
-import 'package:enough_platform_widgets/enough_platform_widgets.dart';
-import 'package:flutter/cupertino.dart' show showCupertinoModalPopup;
 import 'package:flutter/material.dart';
 
 import 'src/sheet.dart';
@@ -169,9 +167,9 @@ class Giphy {
       {required bool usePlatformBottomSheet,
       required BuildContext context,
       required Widget Function(BuildContext, ScrollController) builder}) {
-    if (usePlatformBottomSheet && PlatformInfo.isCupertino) {
-      return _showBottomSheetCupertino(context, builder);
-    }
+    // if (usePlatformBottomSheet && PlatformInfo.isCupertino) {
+    //   return _showBottomSheetCupertino(context, builder);
+    // }
     return _showBottomSheetMaterial(context, builder);
   }
 
@@ -193,20 +191,6 @@ class Giphy {
               expand: false,
               builder: builder,
             ),
-          ),
-        ),
-      );
-
-  static Future<T?> _showBottomSheetCupertino<T>(BuildContext context,
-          Widget Function(BuildContext, ScrollController) builder) =>
-      showCupertinoModalPopup(
-        context: context,
-        builder: (context) => SizedBox.expand(
-          child: DraggableScrollableSheet(
-            initialChildSize: 0.75,
-            maxChildSize: 0.9,
-            expand: false,
-            builder: builder,
           ),
         ),
       );
