@@ -99,6 +99,8 @@ class Giphy {
     String? headerGifsText,
     String? headerStickersText,
     String? headerEmojiText,
+    TextStyle? searchTextStyle,
+    // InputDecoration? searchInputDecoration,
     int gridMinColumns = 2,
     double gridSpacing = 4.0,
     BorderRadius? gridBorderRadius = const BorderRadius.only(
@@ -145,6 +147,7 @@ class Giphy {
           keepState: keepState,
           gridBuilder: gridBuilder,
           errorBuilder: errorBuilder,
+          searchTextStyle: searchTextStyle,
           searchLabelText: searchLabelText,
           searchHintText: searchHintText,
           searchEmptyResultText: searchEmptyResultText,

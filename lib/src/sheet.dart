@@ -25,6 +25,7 @@ class GiphySheet extends StatefulWidget {
     required this.request,
     this.gridBuilder,
     this.errorBuilder,
+    this.searchTextStyle,
     this.searchInputDecoration,
     this.searchLabelText,
     this.searchHintText,
@@ -56,6 +57,9 @@ class GiphySheet extends StatefulWidget {
 
   /// The decoration for the input field
   final InputDecoration? searchInputDecoration;
+
+  /// The text styling for the search text
+  final TextStyle? searchTextStyle;
 
   /// The label for the search field
   final String? searchLabelText;
@@ -149,6 +153,7 @@ class _GiphySheetState extends State<GiphySheet> {
   static GiphyRequest? _lastRequest;
   late Future<GiphySource> _loaderFuture;
   late InputDecoration _inputDecoration;
+  late TextStyle? _textStyle;
   late TextEditingController _searchController;
   late GiphyRequest _currentRequest;
 
@@ -192,6 +197,7 @@ class _GiphySheetState extends State<GiphySheet> {
                 )
               : null,
         );
+    _textStyle = widget.searchTextStyle;
     super.didChangeDependencies();
   }
 
@@ -349,6 +355,7 @@ class _GiphySheetState extends State<GiphySheet> {
       enabled: _currentRequest.type != GiphyType.emoji,
       decoration: _inputDecoration,
       controller: _searchController,
+      style: _textStyle,
       textInputAction: TextInputAction.search,
       onSubmitted: _onSearchSubmitted,
     );
